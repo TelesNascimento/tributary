@@ -1,0 +1,37 @@
+[
+    {
+        "name": "RDZ_PRODUCAO",
+        "owner": "User 50 U703750",
+        "type": "WORKSPACE",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID92762935659002"
+    },
+    {
+        "name": "P200-P200_Custeio_Pecuario_Servico",
+        "owner": "User 50 U703750",
+        "type": "WORKSPACE",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID05241833685059"
+    },
+    {
+        "name": "P600-P600_Ledger_Web",
+        "owner": "User 50 U703750",
+        "type": "WORKSPACE",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID47100845193988"
+    },
+    {
+        "name": "\u00c1rea de Trabalho P100_ATD_9485000_sample_service_DEV1",
+        "owner": "User 29 U296629",
+        "type": "WORKSPACE",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID61201813754833"
+    },
+    {
+        "name": "\u00c1rea de Trabalho P200_ATD_9130216_Geo_Mobile_DEV2",
+        "owner": "User 29 U296629",
+        "type": "WORKSPACE",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID10277123067724"
+    }
+]

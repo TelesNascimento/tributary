@@ -1,0 +1,18 @@
+{
+    "conflicts": [
+        {
+            "parent-uuid": "_FAKEUUID62207842810298",
+            "path-hint": "/src/main/java/br/example/acme/p100/servico/sample_app/core/integration/jms/package-info.java",
+            "state": {
+                "autoresolve": false,
+                "conflict": true,
+                "content_conflict": true,
+                "incidental": false,
+                "property_conflict": false
+            },
+            "type-outgoing": "Modified",
+            "type-proposed": "Modified",
+            "uuid": "_FAKEUUID41658062987279"
+        }
+    ]
+}

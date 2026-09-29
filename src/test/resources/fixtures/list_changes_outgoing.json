@@ -1,0 +1,44 @@
+{
+    "changes": [
+        {
+            "author": "User 29 U296629",
+            "changes": [
+                {
+                    "before-state": "_FAKEUUID26033991142618",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\core\\integration\\jms\\package-info.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID90937563088263",
+                    "uuid": "_FAKEUUID41658062987279"
+                }
+            ],
+            "comment": "change set comment 1002",
+            "component": {
+                "name": "P100_sample_service",
+                "url": "https://rtc.example.com/ccm/",
+                "uuid": "_FAKEUUID33595652945854"
+            },
+            "modified": "29-Sep-2026 06:16 PM",
+            "state": {
+                "active": true,
+                "complete": false,
+                "conflict": false,
+                "has_source": false,
+                "is_linked": false,
+                "is_source": false,
+                "potential_conflict": false
+            },
+            "url": "https://rtc.example.com/ccm/",
+            "uuid": "_FAKEUUID31405159947553"
+        }
+    ]
+}

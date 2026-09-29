@@ -1,0 +1,37 @@
+[
+    {
+        "name": "P300_ATD_9459289",
+        "owner": "P300",
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID14424667661501"
+    },
+    {
+        "name": "P200_ATD_9126058",
+        "owner": "P200",
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID38363303012758"
+    },
+    {
+        "name": "P200_ATD_9130216_Geo_Mobile_DEV3",
+        "owner": "P200",
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID88114017844370"
+    },
+    {
+        "name": "P200_ATD_9799796_Plano_Negocio_Adm_Web_DEV1",
+        "owner": "P200",
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID87681320098774"
+    },
+    {
+        "name": "P200_ATD_9799796_Plano_Negocio_Admin_Web_DEV1",
+        "owner": "P200",
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID72066891990239"
+    }
+]

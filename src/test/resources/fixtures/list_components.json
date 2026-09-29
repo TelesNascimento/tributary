@@ -1,0 +1,37 @@
+{
+    "workspaces": [
+        {
+            "components": [
+                {
+                    "contains-subhierarchy-cycle": false,
+                    "is-accessible": true,
+                    "is-in-cycle": false,
+                    "is-in-workspace": true,
+                    "is-root": true,
+                    "name": "P100_sample_service",
+                    "subcomponents": [],
+                    "uuid": "_FAKEUUID33595652945854"
+                }
+            ],
+            "flow-target": {
+                "incoming-flow": {
+                    "name": "P100_ATD_9485000_sample_service_DEV1",
+                    "type": "STREAM",
+                    "url": "https://rtc.example.com/ccm/",
+                    "uuid": "_FAKEUUID41790582444291"
+                },
+                "outgoing-flow": {
+                    "name": "P100_ATD_9485000_sample_service_DEV1",
+                    "type": "STREAM",
+                    "url": "https://rtc.example.com/ccm/",
+                    "uuid": "_FAKEUUID41790582444291"
+                }
+            },
+            "name": "\u00c1rea de Trabalho P100_ATD_9485000_sample_service_DEV1",
+            "type": "WORKSPACE",
+            "url": "https://rtc.example.com/ccm/",
+            "userId": "User 29 U296629",
+            "uuid": "_FAKEUUID61201813754833"
+        }
+    ]
+}

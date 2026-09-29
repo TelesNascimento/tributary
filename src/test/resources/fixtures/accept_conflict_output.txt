@@ -1,0 +1,13 @@
+Accepting changes:
+  Repository: https://rtc.example.com/ccm/
+  Workspace: (1006) "U296629_P100_ATD_9485000_sample_service_DEV14"
+    Component: (1002) "P100_sample_service"
+      Change sets:
+        (1010) ---#$  "teste conflito a" 29-Sep-2026 06:22 PM
+          Changes:
+            -#-c- \src\main\java\br\example\acme\p100\servico\sample_app\core\integration\jms\package-info.java
+Following workspaces still have conflicts after accept:
+  U296629_P100_ATD_9485000_sample_service_DEV14
+Run 'scm resolve conflict' or 'scm show conflicts' or 'scm show status' for help in resolving the conflicts.
+Problem running 'accept':
+System.Management.Automation.RemoteException

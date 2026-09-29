@@ -1,0 +1,345 @@
+{
+    "changes": [
+        {
+            "author": "User 29 U296629",
+            "changes": [
+                {
+                    "before-state": "_FAKEUUID66768456684478",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.core.resources.prefs",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID22201080235719",
+                    "uuid": "_FAKEUUID94806451454503"
+                },
+                {
+                    "before-state": "_FAKEUUID02650566001920",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.wst.common.component",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID31079375383540",
+                    "uuid": "_FAKEUUID81264465958610"
+                },
+                {
+                    "before-state": "_FAKEUUID04724078216869",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample7530.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID63003610353234",
+                    "uuid": "_FAKEUUID88647079861763"
+                },
+                {
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample6646.java",
+                    "state": {
+                        "add": true,
+                        "conflict": false,
+                        "content_change": false,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID83379958337763",
+                    "uuid": "_FAKEUUID17639236367725"
+                },
+                {
+                    "before-state": "_FAKEUUID47276604802437",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample5032.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID50698745570926",
+                    "uuid": "_FAKEUUID80299356166940"
+                },
+                {
+                    "before-state": "_FAKEUUID04366901921500",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\api\\dto\\Sample3014.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID99864096946084",
+                    "uuid": "_FAKEUUID12074884732741"
+                }
+            ],
+            "comment": "change set comment 5314",
+            "modified": "29-Sep-2026 01:04 PM",
+            "state": {
+                "active": false,
+                "complete": true,
+                "conflict": false,
+                "current": false,
+                "current_merge_target": false,
+                "has_source": false,
+                "is_linked": false,
+                "is_source": false,
+                "potential_conflict": false
+            },
+            "url": "https://rtc.example.com/ccm/",
+            "uuid": "_FAKEUUID97891906039091",
+            "workitem-label": "9414248 \"Sample work item 8002\"",
+            "workitems": [
+                {
+                    "id": 9414248,
+                    "uuid": "_FAKEUUID65188638059470",
+                    "workitem-label": "Sample work item 8002",
+                    "workitem-number": 9414248
+                }
+            ]
+        },
+        {
+            "author": "User 29 U296629",
+            "changes": [
+                {
+                    "before-state": "_FAKEUUID66148415467366",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\pom.xml",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID32854327612627",
+                    "uuid": "_FAKEUUID42525446902126"
+                },
+                {
+                    "before-state": "_FAKEUUID26566438837309",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\resources\\META-INF\\persistence.xml",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID52210353905097",
+                    "uuid": "_FAKEUUID61391323279030"
+                },
+                {
+                    "before-state": "_FAKEUUID36411605372968",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\test\\java\\br\\example\\acme\\p100\\servico\\sample_app\\integration\\Sample9857.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID84098075827148",
+                    "uuid": "_FAKEUUID40512636735680"
+                }
+            ],
+            "comment": "change set comment 5314",
+            "modified": "14-Sep-2026 09:49 AM",
+            "state": {
+                "active": false,
+                "complete": true,
+                "conflict": false,
+                "current": false,
+                "current_merge_target": false,
+                "has_source": false,
+                "is_linked": false,
+                "is_source": false,
+                "potential_conflict": false
+            },
+            "url": "https://rtc.example.com/ccm/",
+            "uuid": "_FAKEUUID35433746874614",
+            "workitem-label": "9414248 \"Sample work item 8002\"",
+            "workitems": [
+                {
+                    "id": 9414248,
+                    "uuid": "_FAKEUUID65188638059470",
+                    "workitem-label": "Sample work item 8002",
+                    "workitem-number": 9414248
+                }
+            ]
+        },
+        {
+            "author": "User 29 U296629",
+            "changes": [
+                {
+                    "before-state": "_FAKEUUID87561893063290",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.core.resources.prefs",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID33145271778300",
+                    "uuid": "_FAKEUUID94806451454503"
+                },
+                {
+                    "before-state": "_FAKEUUID98827121532007",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.jdt.core.prefs",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID42297231438364",
+                    "uuid": "_FAKEUUID89861611191565"
+                },
+                {
+                    "before-state": "_FAKEUUID32542750056344",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.jpt.core.prefs",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID09883553300028",
+                    "uuid": "_FAKEUUID05423392877785"
+                },
+                {
+                    "before-state": "_FAKEUUID51378598631771",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.wst.common.component",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID02650566001920",
+                    "uuid": "_FAKEUUID81264465958610"
+                },
+                {
+                    "before-state": "_FAKEUUID87951168307192",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.wst.common.project.facet.core.prefs.xml",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID30987842248361",
+                    "uuid": "_FAKEUUID91341595851645"
+                },
+                {
+                    "before-state": "_FAKEUUID81672221767187",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.wst.common.project.facet.core.xml",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID70230756819767",
+                    "uuid": "_FAKEUUID95522726269911"
+                }
+            ],
+            "comment": "change set comment 5314",
+            "modified": "14-Sep-2026 08:44 AM",
+            "state": {
+                "active": false,
+                "complete": true,
+                "conflict": false,
+                "current": false,
+                "current_merge_target": false,
+                "has_source": false,
+                "is_linked": false,
+                "is_source": false,
+                "potential_conflict": false
+            },
+            "url": "https://rtc.example.com/ccm/",
+            "uuid": "_FAKEUUID68581489836862",
+            "workitem-label": "9414248 \"Sample work item 8002\"",
+            "workitems": [
+                {
+                    "id": 9414248,
+                    "uuid": "_FAKEUUID65188638059470",
+                    "workitem-label": "Sample work item 8002",
+                    "workitem-number": 9414248
+                }
+            ]
+        }
+    ]
+}

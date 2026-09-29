@@ -1,0 +1,136 @@
+{
+    "changes": [
+        {
+            "author": "User 29 U296629",
+            "changes": [
+                {
+                    "before-state": "_FAKEUUID66768456684478",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.core.resources.prefs",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID22201080235719",
+                    "uuid": "_FAKEUUID94806451454503"
+                },
+                {
+                    "before-state": "_FAKEUUID02650566001920",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\.settings\\org.eclipse.wst.common.component",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID31079375383540",
+                    "uuid": "_FAKEUUID81264465958610"
+                },
+                {
+                    "before-state": "_FAKEUUID04724078216869",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample7530.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID63003610353234",
+                    "uuid": "_FAKEUUID88647079861763"
+                },
+                {
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample6646.java",
+                    "state": {
+                        "add": true,
+                        "conflict": false,
+                        "content_change": false,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID83379958337763",
+                    "uuid": "_FAKEUUID17639236367725"
+                },
+                {
+                    "before-state": "_FAKEUUID47276604802437",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\agent\\Sample5032.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID50698745570926",
+                    "uuid": "_FAKEUUID80299356166940"
+                },
+                {
+                    "before-state": "_FAKEUUID04366901921500",
+                    "inaccessible-change": false,
+                    "merges": [],
+                    "path": "\\src\\main\\java\\br\\example\\acme\\p100\\servico\\sample_app\\api\\dto\\Sample3014.java",
+                    "state": {
+                        "add": false,
+                        "conflict": false,
+                        "content_change": true,
+                        "delete": false,
+                        "move": false,
+                        "potential_conflict": false,
+                        "property_change": false
+                    },
+                    "state-id": "_FAKEUUID99864096946084",
+                    "uuid": "_FAKEUUID12074884732741"
+                }
+            ],
+            "comment": "change set comment 5314",
+            "component": {
+                "name": "P100_sample_service",
+                "url": "https://rtc.example.com/ccm/",
+                "uuid": "_FAKEUUID33595652945854"
+            },
+            "modified": "29-Sep-2026 01:04 PM",
+            "state": {
+                "active": false,
+                "complete": true,
+                "conflict": false,
+                "has_source": false,
+                "is_linked": false,
+                "is_source": false,
+                "potential_conflict": false
+            },
+            "url": "https://rtc.example.com/ccm/",
+            "uuid": "_FAKEUUID97891906039091",
+            "workitems": [
+                {
+                    "id": 9414248,
+                    "uuid": "_FAKEUUID65188638059470",
+                    "workitem-label": "Sample work item 8002",
+                    "workitem-number": 9414248
+                }
+            ]
+        }
+    ]
+}

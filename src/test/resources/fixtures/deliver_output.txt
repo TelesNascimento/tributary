@@ -1,0 +1,9 @@
+Delivering changes:
+  Repository: https://rtc.example.com/ccm/
+  Workspace: (1004) "U296629_P100_ATD_9485000_sample_service_DEV13"
+    Component: (1002) "P100_sample_service"
+      Change sets:
+        (1007) ----$  "teste fluxo dev12" 29-Sep-2026 06:18 PM
+          Changes:
+            ---c- \src\main\java\br\example\acme\p100\servico\sample_app\core\integration\jms\package-info.java
+The deliver command completed successfully.

@@ -1,0 +1,16 @@
+### Jazz Patch 1.0
+#date: "2026-09-29 16:14:57.000000713 -0300"
+#component: "_FAKEUUID33595652945854"
+#itemid: "src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java" "_FAKEUUID75730155847487" "_FAKEUUID33595652945854"
+#item_type: "_FAKEUUID75730155847487" "file"
+#itemid: "src/main/java/br/example/acme/p100/servico/sample_app/v1/dto" "_FAKEUUID63890135113752" "_FAKEUUID33595652945854"
+#item_type: "_FAKEUUID63890135113752" "folder"
+#before_state: "src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java" "_FAKEUUID75730155847487" "_FAKEUUID95762595307194"
+#
+diff -u -N src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java
+--- src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java	2026-09-14 09:47:39.000000009 -0300
++++ src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java	2026-09-29 16:14:39.000000739 -0300
+@@ -1,1 +1,3 @@
+ package br.example.acme.p100.servico.sample_app.v1.dto;
++
++// probe-line
