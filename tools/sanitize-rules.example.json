@@ -1,0 +1,9 @@
+{
+  "_comment": "Copy to sanitize-rules.local.json (git-ignored) and add your company's hostnames, project names and ids.",
+  "banned": "(example-internal-host|my-company)",
+  "system_codes": {"100": "P100"},
+  "text_rules": [
+    ["https?://rtc\\.my-company\\.com", "https://rtc.example.com"],
+    ["my-company", "acme"]
+  ]
+}
