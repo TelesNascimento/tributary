@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>dev.tributary</id>
+    <name>Tributary</name>
+    <vendor url="https://github.com/TelesNascimento">Teles Nascimento</vendor>
+    <description><![CDATA[
+Tributary brings IBM Engineering Workflow Management (RTC) source control into IntelliJ IDEA.<br/>
+Detects sandboxes by their <code>.jazz5</code> folder, shows pending changes, and checks in from the Commit tool window.<br/>
+<b>Requires</b> the RTC/EWM SCM command-line tools (6.0 or later) installed locally.<br/>
+<b>Install:</b> Settings &gt; Plugins &gt; gear icon &gt; Install Plugin from Disk, then pick the .zip.<br/>
+<b>Configure:</b> Settings &gt; Version Control &gt; Tributary, then run <code>scm login</code> once.<br/>
+Not affiliated with or endorsed by IBM.
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <vcs name="RTC" vcsClass="dev.tributary.vcs.RtcVcs" displayName="RTC"/>
+        <toolWindow id="Tributary" anchor="left" secondary="false" icon="/icons/toolWindow.svg"
+                    factoryClass="dev.tributary.ui.TributaryToolWindowFactory"/>
+        <postStartupActivity implementation="dev.tributary.vcs.RtcSandboxActivator"/>
+        <notificationGroup id="Tributary" displayType="BALLOON"/>
+        <vcs.ignoredFileProvider implementation="dev.tributary.ignore.RtcIgnoredFileProvider"/>
+        <checkinHandlerFactory implementation="dev.tributary.vcs.RtcCheckinHandlerFactory"/>
+        <vcsRootChecker implementation="dev.tributary.vcs.RtcVcsRootChecker"/>
+        <applicationConfigurable parentId="project.propVCSSupport.Mappings"
+                                 instance="dev.tributary.settings.TributaryConfigurable"
+                                 id="dev.tributary.settings" displayName="Tributary"/>
+        <statusBarWidgetFactory id="dev.tributary.status"
+                                implementation="dev.tributary.ui.context.TributaryStatusWidgetFactory"/>
+    </extensions>
+    <applicationListeners>
+        <listener class="dev.tributary.vcs.RefreshOnActivation"
+                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+    </applicationListeners>
+    <actions>
+        <group id="Tributary.Menu" text="Tributary" popup="true" icon="/icons/toolWindow.svg">
+            <add-to-group group-id="VcsGroups" anchor="last"/>
+            <action id="Tributary.StartWork" class="dev.tributary.ui.context.StartWorkAction">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt shift W"/>
+            </action>
+            <action id="Tributary.Deliver" class="dev.tributary.ui.changes.DeliverAction"/>
+            <action id="Tributary.Accept" class="dev.tributary.ui.changes.AcceptAction"/>
+            <action id="Tributary.Refresh" class="dev.tributary.ui.context.RefreshAction"/>
+        </group>
+        <action id="Tributary.AddToJazzIgnore" class="dev.tributary.ignore.AddToJazzIgnoreAction">
+            <add-to-group group-id="ChangesViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
