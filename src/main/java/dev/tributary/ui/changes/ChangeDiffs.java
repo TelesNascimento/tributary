@@ -9,8 +9,12 @@ import com.intellij.openapi.project.Project;
 import dev.tributary.TributaryBundle;
 import dev.tributary.backend.RtcBackend;
 import dev.tributary.cli.Model.PathChange;
+import dev.tributary.cli.RtcException;
 import dev.tributary.ui.common.TributaryNotifier;
 import dev.tributary.ui.common.TributaryTasks;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public final class ChangeDiffs {
 
@@ -21,20 +25,42 @@ public final class ChangeDiffs {
                 project,
                 TributaryBundle.message("diff.loading", change.path()),
                 true,
-                cancelled -> new String[] {before(backend, change), after(backend, change)},
+                cancelled -> load(backend, change),
                 contents -> open(project, change, contents[0], contents[1]),
                 failure -> TributaryNotifier.error(project, TributaryBundle.message("diff.failed"), failure));
     }
 
-    private static String before(RtcBackend backend, PathChange change) throws dev.tributary.cli.RtcException {
+    private static String[] load(RtcBackend backend, PathChange change) throws RtcException {
+        if (change.stateId() == null) {
+            return unresolved(backend, change);
+        }
+        return new String[] {before(backend, change), after(backend, change)};
+    }
+
+    private static String[] unresolved(RtcBackend backend, PathChange change) throws RtcException {
+        Path file = backend.sandboxRoot().resolve(change.path().replaceFirst("^/", ""));
+        String before = change.added() ? "" : backend.baseContent(file);
+        String after = "";
+        if (!change.deleted()) {
+            try {
+                after = Files.readString(file);
+            } catch (IOException e) {
+                throw new RtcException(
+                        RtcException.Kind.FAILED, TributaryBundle.message("error.read.file", file, e.getMessage()));
+            }
+        }
+        return new String[] {before, after};
+    }
+
+    private static String before(RtcBackend backend, PathChange change) throws RtcException {
         if (change.added() || change.beforeStateId() == null || change.uuid() == null) {
             return "";
         }
         return backend.fileContent(change.uuid(), change.beforeStateId());
     }
 
-    private static String after(RtcBackend backend, PathChange change) throws dev.tributary.cli.RtcException {
-        if (change.deleted() || change.stateId() == null || change.uuid() == null) {
+    private static String after(RtcBackend backend, PathChange change) throws RtcException {
+        if (change.deleted() || change.uuid() == null) {
             return "";
         }
         return backend.fileContent(change.uuid(), change.stateId());

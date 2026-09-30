@@ -109,7 +109,7 @@ public final class WorkspacesPanel extends SimpleToolWindowPanel {
 
     public void refresh() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode(TributaryBundle.message("app.title"));
-        root.add(node(Kind.LOADING, TributaryBundle.message("workspaces.loading"), "", null));
+        root.add(tn(Kind.LOADING, TributaryBundle.message("workspaces.loading"), "", null));
         tree.setModel(new DefaultTreeModel(root));
         ApplicationManager.getApplication().executeOnPooledThread(() -> {
             DefaultMutableTreeNode result = new DefaultMutableTreeNode(TributaryBundle.message("app.title"));
@@ -140,7 +140,7 @@ public final class WorkspacesPanel extends SimpleToolWindowPanel {
                 result.add(areas);
                 result.add(others);
             } catch (RtcException e) {
-                result.add(node(Kind.MESSAGE, e.getMessage(), "", null));
+                result.add(tn(Kind.MESSAGE, e.getMessage(), "", null));
             }
             SwingUtilities.invokeLater(() -> {
                 tree.setModel(new DefaultTreeModel(result));
@@ -170,7 +170,7 @@ public final class WorkspacesPanel extends SimpleToolWindowPanel {
                             node(Kind.MESSAGE, TributaryBundle.message("workspaces.no.streams"), "", null)));
                 }
             } catch (RtcException e) {
-                children.add(new DefaultMutableTreeNode(node(Kind.MESSAGE, e.getMessage(), "", null)));
+                children.add(tn(Kind.MESSAGE, e.getMessage(), "", null));
             }
             SwingUtilities.invokeLater(() -> {
                 treeNode.removeAllChildren();
@@ -225,8 +225,12 @@ public final class WorkspacesPanel extends SimpleToolWindowPanel {
         }
     }
 
-    private static DefaultMutableTreeNode node(Kind kind, String label, String hint, RemoteWorkspace item) {
-        return new DefaultMutableTreeNode(new Node(kind, label, hint == null ? "" : hint, item));
+    private static Node node(Kind kind, String label, String hint, RemoteWorkspace item) {
+        return new Node(kind, label, hint == null ? "" : hint, item);
+    }
+
+    private static DefaultMutableTreeNode tn(Kind kind, String label, String hint, RemoteWorkspace item) {
+        return new DefaultMutableTreeNode(node(kind, label, hint, item));
     }
 
     private AnAction action(String text, String description, Icon icon, Runnable body) {

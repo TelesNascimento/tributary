@@ -1,11 +1,13 @@
 package dev.tributary.ui.changes;
 
+import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.ValidationInfo;
 import com.intellij.ui.CheckBoxList;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.OnePixelSplitter;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
@@ -27,7 +29,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import org.jetbrains.annotations.Nullable;
 
@@ -106,8 +107,9 @@ public final class ChangeSetsDialog extends DialogWrapper {
         header.setBorder(JBUI.Borders.empty(0, 0, 4, 0));
         right.add(header, BorderLayout.NORTH);
         right.add(new JBScrollPane(files), BorderLayout.CENTER);
-        JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, right);
-        split.setResizeWeight(0.45);
+        OnePixelSplitter split = new OnePixelSplitter(false, 0.45f);
+        split.setFirstComponent(left);
+        split.setSecondComponent(right);
 
         warning.setForeground(JBColor.namedColor("Component.warningFocusColor", JBColor.ORANGE));
         warning.setText(warnings.isEmpty() ? " " : "<html>" + String.join("<br>", warnings) + "</html>");
@@ -201,7 +203,14 @@ public final class ChangeSetsDialog extends DialogWrapper {
                                     SimpleTextAttributes.STYLE_PLAIN,
                                     JBColor.namedColor("VersionControl.FileStatus.deleted", JBColor.GRAY))
                             : SimpleTextAttributes.REGULAR_ATTRIBUTES;
-            append(change.path(), attributes);
+            String path = change.path();
+            int slash = path.lastIndexOf('/');
+            String name = path.substring(slash + 1);
+            setIcon(FileTypeManager.getInstance().getFileTypeByFileName(name).getIcon());
+            append(name, attributes);
+            if (slash > 0) {
+                append("  " + path.substring(1, slash), SimpleTextAttributes.GRAYED_ATTRIBUTES);
+            }
         }
     }
 }

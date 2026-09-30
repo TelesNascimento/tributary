@@ -6,8 +6,10 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
+import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
 import com.intellij.ui.ColoredTreeCellRenderer;
 import com.intellij.ui.JBColor;
@@ -201,8 +203,7 @@ public final class OverviewPanel extends SimpleToolWindowPanel {
                 "",
                 AllIcons.Vcs.Changelist);
         for (PathChange change : component.unresolved()) {
-            unresolved.add(new DefaultMutableTreeNode(
-                    new Node(Kind.FILE, change.path(), kindOf(change), null, change, backend)));
+            unresolved.add(fileNode(change, backend));
         }
         node.add(unresolved);
         return node;
@@ -229,8 +230,7 @@ public final class OverviewPanel extends SimpleToolWindowPanel {
         try {
             for (ChangeSet loaded : backend.listChanges(changeSet.uuid())) {
                 for (PathChange change : loaded.changes()) {
-                    nodes.add(new DefaultMutableTreeNode(
-                            new Node(Kind.FILE, change.path(), kindOf(change), null, change, backend)));
+                    nodes.add(fileNode(change, backend));
                 }
             }
         } catch (RtcException e) {
@@ -240,6 +240,23 @@ public final class OverviewPanel extends SimpleToolWindowPanel {
             nodes.add(node(Kind.MESSAGE, TributaryBundle.message("changesets.files.empty"), "", null));
         }
         return nodes;
+    }
+
+    private static DefaultMutableTreeNode fileNode(PathChange change, RtcBackend backend) {
+        String path = change.path();
+        int slash = path.lastIndexOf('/');
+        String name = path.substring(slash + 1);
+        String directory = slash > 0 ? path.substring(1, slash) : "";
+        String hint = (directory.isEmpty() ? "" : directory + "  ") + kindOf(change);
+        Icon icon = FileTypeManager.getInstance().getFileTypeByFileName(name).getIcon();
+        return new DefaultMutableTreeNode(new Node(Kind.FILE, name, hint, icon, change, backend));
+    }
+
+    private static FileStatus statusOf(PathChange change) {
+        if (change.added()) {
+            return FileStatus.ADDED;
+        }
+        return change.deleted() ? FileStatus.DELETED : FileStatus.MODIFIED;
     }
 
     private static String kindOf(PathChange change) {
@@ -293,13 +310,16 @@ public final class OverviewPanel extends SimpleToolWindowPanel {
                 return;
             }
             setIcon(node.icon());
-            append(
-                    node.label(),
-                    node.kind() == Kind.MESSAGE
-                            ? SimpleTextAttributes.GRAYED_ATTRIBUTES
-                            : node.kind() == Kind.WORKSPACE
-                                    ? SimpleTextAttributes.REGULAR_BOLD_ATTRIBUTES
-                                    : SimpleTextAttributes.REGULAR_ATTRIBUTES);
+            SimpleTextAttributes attributes = SimpleTextAttributes.REGULAR_ATTRIBUTES;
+            if (node.kind() == Kind.MESSAGE) {
+                attributes = SimpleTextAttributes.GRAYED_ATTRIBUTES;
+            } else if (node.kind() == Kind.WORKSPACE) {
+                attributes = SimpleTextAttributes.REGULAR_BOLD_ATTRIBUTES;
+            } else if (node.kind() == Kind.FILE && node.file() != null) {
+                attributes = new SimpleTextAttributes(
+                        SimpleTextAttributes.STYLE_PLAIN, statusOf(node.file()).getColor());
+            }
+            append(node.label(), attributes);
             if (!node.hint().isEmpty()) {
                 append("  " + node.hint(), SimpleTextAttributes.GRAYED_ATTRIBUTES);
             }
