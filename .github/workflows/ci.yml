@@ -26,7 +26,7 @@ jobs:
         with:
           distribution: temurin
           java-version: "25"
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v5
       - name: Check formatting, run tests and build the plugin
         run: ./gradlew spotlessCheck test buildPlugin --no-daemon --console=plain
       - name: Upload the plugin (built without the work item bridge)
@@ -52,6 +52,6 @@ jobs:
         with:
           distribution: temurin
           java-version: "25"
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v5
       - name: Verify binary compatibility with the target IDE
         run: ./gradlew verifyPlugin --no-daemon --console=plain
