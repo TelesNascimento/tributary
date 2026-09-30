@@ -3,7 +3,7 @@ import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 plugins {
     java
     id("org.jetbrains.intellij.platform") version "2.19.0"
-    id("com.diffplug.spotless") version "8.9.0"
+    id("com.diffplug.spotless") version "8.10.3"
 }
 
 group = "dev.tributary"
