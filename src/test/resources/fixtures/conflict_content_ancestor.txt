@@ -1,0 +1,4 @@
+Content:
+  package br.example.acme.p100.servico.sample_app.core.integration.jms;
+
+

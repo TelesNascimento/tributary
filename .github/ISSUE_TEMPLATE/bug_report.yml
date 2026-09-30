@@ -1,0 +1,47 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please do not paste server names, user ids, passwords or repository content.
+        Replace them with placeholders.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: ide
+    attributes:
+      label: IDE and version
+      placeholder: IntelliJ IDEA 2025.2 (Community)
+    validations:
+      required: true
+  - type: input
+    id: tributary
+    attributes:
+      label: Tributary version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: rtc
+    attributes:
+      label: RTC / EWM client and server version
+      placeholder: scm 6.0.4 / server 6.0.x
+  - type: textarea
+    id: logs
+    attributes:
+      label: Notification details or idea.log excerpt
+      description: Use "Show Details" on the error notification. Remove any private data first.
+      render: text

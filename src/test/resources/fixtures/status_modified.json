@@ -1,0 +1,83 @@
+{
+    "status": [],
+    "workspaces": [
+        {
+            "components": [
+                {
+                    "baseline": {
+                        "id": 1129,
+                        "name": "P100_sample_service 20260623_160026 (Constru\u00c3\u00a7\u00c3\u00a3o - P100_ATD_9386965_sample_service_DEV1 - #4)",
+                        "uuid": "_FAKEUUID13411953188027"
+                    },
+                    "flow-target": {
+                        "incoming-flow": {
+                            "name": "P100_ATD_9485000_sample_service_DEV1",
+                            "type": "STREAM",
+                            "url": "https://rtc.example.com/ccm/",
+                            "uuid": "_FAKEUUID41790582444291"
+                        },
+                        "name": "P100_ATD_9485000_sample_service_DEV1",
+                        "outgoing-flow": {
+                            "name": "P100_ATD_9485000_sample_service_DEV1",
+                            "type": "STREAM",
+                            "url": "https://rtc.example.com/ccm/",
+                            "uuid": "_FAKEUUID41790582444291"
+                        },
+                        "type": "STREAM",
+                        "url": "https://rtc.example.com/ccm/",
+                        "uuid": "_FAKEUUID41790582444291"
+                    },
+                    "incoming-addition": false,
+                    "incoming-changes": [],
+                    "incoming-deletion": false,
+                    "incoming-replacement": false,
+                    "is_comp_loaded": true,
+                    "name": "P100_sample_service",
+                    "outgoing-addition": false,
+                    "outgoing-changes": [],
+                    "outgoing-deletion": false,
+                    "outgoing-replacement": false,
+                    "suspended": [],
+                    "type": null,
+                    "unresolved": [
+                        {
+                            "path": "/src/main/java/br/example/acme/p100/servico/sample_app/v1/dto/package-info.java",
+                            "state": {
+                                "add": false,
+                                "content_change": true,
+                                "delete": false,
+                                "move": false,
+                                "property_change": false
+                            },
+                            "uuid": "_FAKEUUID75730155847487"
+                        }
+                    ],
+                    "uuid": "_FAKEUUID33595652945854"
+                }
+            ],
+            "flow-target": {
+                "incoming-flow": {
+                    "name": "P100_ATD_9485000_sample_service_DEV1",
+                    "url": "https://rtc.example.com/ccm/",
+                    "userId": "U296629",
+                    "uuid": "_FAKEUUID41790582444291"
+                },
+                "name": "P100_ATD_9485000_sample_service_DEV1",
+                "outgoing-flow": {
+                    "name": "P100_ATD_9485000_sample_service_DEV1",
+                    "url": "https://rtc.example.com/ccm/",
+                    "userId": "U296629",
+                    "uuid": "_FAKEUUID41790582444291"
+                },
+                "url": "https://rtc.example.com/ccm/",
+                "userId": "U296629",
+                "uuid": "_FAKEUUID41790582444291"
+            },
+            "name": "\u00c1rea de Trabalho P100_ATD_9485000_sample_service_DEV1",
+            "type": "WORKSPACE",
+            "url": "https://rtc.example.com/ccm/",
+            "userId": "U296629",
+            "uuid": "_FAKEUUID61201813754833"
+        }
+    ]
+}

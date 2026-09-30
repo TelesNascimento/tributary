@@ -1,0 +1,12 @@
+[
+    {
+        "certLoc": "<No certificate>",
+        "kerberos": "<No Kerberos>",
+        "password": "<Password stored>",
+        "repoNickName": "rtc.example.com",
+        "smartCard": "<No smartcard>",
+        "url": "https://rtc.example.com/ccm/",
+        "user-id": "_FAKEUUID56096348215606",
+        "userName": "U296629"
+    }
+]

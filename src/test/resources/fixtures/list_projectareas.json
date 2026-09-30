@@ -1,0 +1,32 @@
+[
+    {
+        "name": "P300",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID85975138042245"
+    },
+    {
+        "name": "[PA] Gest\u00e3o de Solicita\u00e7\u00f5es",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID45780390273428"
+    },
+    {
+        "name": "[PA] Gest\u00e3o de Contratos",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID04843217367342"
+    },
+    {
+        "name": "P500",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID37027898042777"
+    },
+    {
+        "name": "P200",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID71557284594208"
+    },
+    {
+        "name": "[PROJETO] IDENTIDADE VISUAL",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID79669417171230"
+    }
+]

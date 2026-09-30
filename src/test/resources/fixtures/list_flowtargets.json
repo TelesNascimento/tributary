@@ -1,0 +1,15 @@
+[
+    {
+        "current-incoming": true,
+        "current-outgoing": true,
+        "default-incoming": true,
+        "default-outgoing": true,
+        "incoming-flow": true,
+        "name": "P100_ATD_9485000_sample_service_DEV1",
+        "outgoing-flow": true,
+        "scoped": false,
+        "type": "STREAM",
+        "url": "https://rtc.example.com/ccm/",
+        "uuid": "_FAKEUUID41790582444291"
+    }
+]

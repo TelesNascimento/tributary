@@ -1,0 +1,20 @@
+{
+  "connections": [
+    { "certLoc": "<No certificate>", "kerberos": "<No Kerberos>", "password": "<Password stored>",
+      "repoNickName": "demo", "smartCard": "<No smartcard>", "url": "https://rtc.example.com/ccm/",
+      "user-id": "_DEMOUSER00000000000001", "userName": "U000001" }
+  ],
+  "workspaces": [
+    { "name": "orders-service-dev", "owner": "User One U000001", "type": "WORKSPACE", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOWORKSPACE0000000001" },
+    { "name": "orders-service-hotfix", "owner": "User One U000001", "type": "WORKSPACE", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOWORKSPACE0000000002" },
+    { "name": "billing-service-dev", "owner": "User Two U000002", "type": "WORKSPACE", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOWORKSPACE0000000003" }
+  ],
+  "projectareas": [
+    { "name": "Orders", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOPROJECTAREA00000001" },
+    { "name": "Billing", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOPROJECTAREA00000002" }
+  ],
+  "streams": [
+    { "name": "orders-stream", "owner": "Orders", "type": "STREAM", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOSTREAM0000000000001" },
+    { "name": "orders-release-1.0", "owner": "Orders", "type": "STREAM", "url": "https://rtc.example.com/ccm/", "uuid": "_DEMOSTREAM0000000000002" }
+  ]
+}

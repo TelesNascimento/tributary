@@ -1,0 +1,78 @@
+{
+  "status": [],
+  "workspaces": [
+    {
+      "name": "orders-service-dev",
+      "type": "WORKSPACE",
+      "url": "https://rtc.example.com/ccm/",
+      "userId": "U000001",
+      "uuid": "_DEMOWORKSPACE0000000001",
+      "flow-target": {
+        "name": "orders-stream",
+        "url": "https://rtc.example.com/ccm/",
+        "userId": "U000001",
+        "uuid": "_DEMOSTREAM0000000000001"
+      },
+      "components": [
+        {
+          "name": "orders-service",
+          "uuid": "_DEMOCOMPONENT00000000001",
+          "is_comp_loaded": true,
+          "baseline": { "id": 12, "name": "orders-service 20260901_090000 (Build #41)", "uuid": "_DEMOBASELINE000000000001" },
+          "unresolved": [
+            { "path": "/src/main/java/com/acme/orders/OrderService.java", "uuid": "_DEMOITEM00000000000001",
+              "state": { "add": false, "content_change": true, "delete": false, "move": false, "property_change": false } },
+            { "path": "/src/main/java/com/acme/orders/OrderValidator.java", "uuid": "_DEMOITEM00000000000002",
+              "state": { "add": true, "content_change": false, "delete": false, "move": false, "property_change": false } },
+            { "path": "/src/main/java/com/acme/orders/LegacyMapper.java", "uuid": "_DEMOITEM00000000000003",
+              "state": { "add": false, "content_change": false, "delete": true, "move": false, "property_change": false } }
+          ],
+          "outgoing-changes": [
+            {
+              "author": "User One", "comment": "Fix rounding in order totals", "modified": "30-Sep-2026 09:12 AM",
+              "uuid": "_DEMOCHANGESET000000001", "url": "https://rtc.example.com/ccm/",
+              "state": { "active": false, "complete": true, "conflict": false, "current": false },
+              "workitems": [ { "id": 9000101, "workitem-number": 9000101, "workitem-label": "Order totals are rounded incorrectly" } ],
+              "changes": [
+                { "path": "\\src\\main\\java\\com\\acme\\orders\\TotalCalculator.java", "uuid": "_DEMOITEM00000000000004",
+                  "state-id": "_DEMOSTATE0000000000002", "before-state": "_DEMOSTATE0000000000001",
+                  "state": { "add": false, "content_change": true, "delete": false, "move": false } },
+                { "path": "\\src\\test\\java\\com\\acme\\orders\\TotalCalculatorTest.java", "uuid": "_DEMOITEM00000000000005",
+                  "state-id": "_DEMOSTATE0000000000004", "before-state": "_DEMOSTATE0000000000003",
+                  "state": { "add": false, "content_change": true, "delete": false, "move": false } }
+              ]
+            },
+            {
+              "author": "User One", "comment": "Add order validation", "modified": "30-Sep-2026 10:40 AM",
+              "uuid": "_DEMOCHANGESET000000002", "url": "https://rtc.example.com/ccm/",
+              "state": { "active": true, "complete": false, "conflict": false, "current": true },
+              "workitems": [ { "id": 9000101, "workitem-number": 9000101, "workitem-label": "Order totals are rounded incorrectly" } ],
+              "changes": [
+                { "path": "\\src\\main\\java\\com\\acme\\orders\\OrderRules.java", "uuid": "_DEMOITEM00000000000006",
+                  "state-id": "_DEMOSTATE0000000000006", "before-state": "_DEMOSTATE0000000000005",
+                  "state": { "add": false, "content_change": true, "delete": false, "move": false } }
+              ]
+            }
+          ],
+          "incoming-changes": [
+            {
+              "author": "User Two", "comment": "Update pricing rules", "modified": "30-Sep-2026 08:05 AM",
+              "uuid": "_DEMOCHANGESET000000003", "url": "https://rtc.example.com/ccm/",
+              "state": { "active": false, "complete": true, "conflict": false, "current": false },
+              "workitems": [ { "id": 9000205, "workitem-number": 9000205, "workitem-label": "Apply the new seasonal discount" } ],
+              "changes": [
+                { "path": "\\src\\main\\java\\com\\acme\\orders\\PricingPolicy.java", "uuid": "_DEMOITEM00000000000007",
+                  "state-id": "_DEMOSTATE0000000000008", "before-state": "_DEMOSTATE0000000000007",
+                  "state": { "add": false, "content_change": true, "delete": false, "move": false } },
+                { "path": "\\src\\main\\resources\\pricing.properties", "uuid": "_DEMOITEM00000000000008",
+                  "state-id": "_DEMOSTATE0000000000010", "before-state": "_DEMOSTATE0000000000009",
+                  "state": { "add": false, "content_change": true, "delete": false, "move": false } }
+              ]
+            }
+          ],
+          "suspended": []
+        }
+      ]
+    }
+  ]
+}

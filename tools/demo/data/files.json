@@ -1,0 +1,12 @@
+{
+  "_DEMOSTATE0000000000001": "public final class TotalCalculator {\n\n    public long total(long[] cents) {\n        long sum = 0;\n        for (long value : cents) {\n            sum += value;\n        }\n        return sum / 100 * 100;\n    }\n}\n",
+  "_DEMOSTATE0000000000002": "public final class TotalCalculator {\n\n    public long total(long[] cents) {\n        long sum = 0;\n        for (long value : cents) {\n            sum += value;\n        }\n        return sum;\n    }\n}\n",
+  "_DEMOSTATE0000000000003": "class TotalCalculatorTest {\n\n    @Test\n    void sumsCents() {\n        assertEquals(250, new TotalCalculator().total(new long[] {100, 150}));\n    }\n}\n",
+  "_DEMOSTATE0000000000004": "class TotalCalculatorTest {\n\n    @Test\n    void sumsCents() {\n        assertEquals(250, new TotalCalculator().total(new long[] {100, 150}));\n    }\n\n    @Test\n    void doesNotRoundDownToWholeUnits() {\n        assertEquals(199, new TotalCalculator().total(new long[] {99, 100}));\n    }\n}\n",
+  "_DEMOSTATE0000000000005": "final class OrderRules {\n\n    boolean isValid(Order order) {\n        return order != null;\n    }\n}\n",
+  "_DEMOSTATE0000000000006": "final class OrderRules {\n\n    boolean isValid(Order order) {\n        return order != null && !order.items().isEmpty() && order.total() > 0;\n    }\n}\n",
+  "_DEMOSTATE0000000000007": "final class PricingPolicy {\n\n    long apply(long price) {\n        return price;\n    }\n}\n",
+  "_DEMOSTATE0000000000008": "final class PricingPolicy {\n\n    private static final int SEASONAL_PERCENT = 10;\n\n    long apply(long price) {\n        return price - price * SEASONAL_PERCENT / 100;\n    }\n}\n",
+  "_DEMOSTATE0000000000009": "discount.seasonal=false\n",
+  "_DEMOSTATE0000000000010": "discount.seasonal=true\ndiscount.seasonal.percent=10\n"
+}
