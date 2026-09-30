@@ -29,7 +29,7 @@ IntelliJ IDEA. You can read `install.ps1` before running it. Useful switches:
 
 | Switch | Effect |
 |---|---|
-| `-Version v0.1.0` | Install a specific release |
+| `-Version v0.2.0` | Install a specific release |
 | `-AllIdes` | Install into every IntelliJ IDEA found |
 | `-PluginsDir <path>` | Install into a specific plugins folder |
 | `-Zip <file>` | Install from a zip you already have |

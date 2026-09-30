@@ -5,6 +5,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-30
+
 ### Added
 - Sandbox detection by the `.jazz5` folder; no *Team > Share Project* step.
 - Native Commit window, Local Changes, diff and Rollback for RTC sandboxes.

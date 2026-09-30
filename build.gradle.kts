@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "dev.tributary"
-version = "0.1.0"
+version = "0.2.0"
 
 val localIde = providers.gradleProperty("idePath").map { file(it) }.orNull?.takeIf { it.isDirectory }
 val platformVersion = providers.gradleProperty("platformVersion").orElse("2025.2")
