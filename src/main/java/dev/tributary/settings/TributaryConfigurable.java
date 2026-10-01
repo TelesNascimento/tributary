@@ -28,6 +28,8 @@ import org.jetbrains.annotations.Nullable;
 public final class TributaryConfigurable implements Configurable {
 
     private final TextFieldWithBrowseButton cliPath = new TextFieldWithBrowseButton();
+    private final TextFieldWithBrowseButton java8Path = new TextFieldWithBrowseButton();
+    private final TextFieldWithBrowseButton ibmPath = new TextFieldWithBrowseButton();
     private final JBTextField charset = new JBTextField();
     private final JSpinner refreshMinutes = new JSpinner(new SpinnerNumberModel(5, 1, 120, 1));
     private final DefaultTableModel connections =
@@ -49,6 +51,14 @@ public final class TributaryConfigurable implements Configurable {
         cliPath.addBrowseFolderListener(
                 null,
                 FileChooserDescriptorFactory.singleFile().withTitle(TributaryBundle.message("settings.cli.chooser")));
+        java8Path.addBrowseFolderListener(
+                null,
+                FileChooserDescriptorFactory.createSingleFolderDescriptor()
+                        .withTitle(TributaryBundle.message("settings.java8.chooser")));
+        ibmPath.addBrowseFolderListener(
+                null,
+                FileChooserDescriptorFactory.createSingleFolderDescriptor()
+                        .withTitle(TributaryBundle.message("settings.libraries.chooser")));
     }
 
     @Override
@@ -77,6 +87,10 @@ public final class TributaryConfigurable implements Configurable {
                 .addComponentToRightColumn(new JBLabel(TributaryBundle.message("settings.cli.hint")))
                 .addLabeledComponent(TributaryBundle.message("settings.charset.label"), charset)
                 .addLabeledComponent(TributaryBundle.message("settings.refresh.label"), refreshMinutes)
+                .addLabeledComponent(TributaryBundle.message("settings.java8.label"), java8Path)
+                .addComponentToRightColumn(new JBLabel(TributaryBundle.message("settings.java8.hint")))
+                .addLabeledComponent(TributaryBundle.message("settings.ibm.label"), ibmPath)
+                .addComponentToRightColumn(new JBLabel(TributaryBundle.message("settings.ibm.hint")))
                 .addLabeledComponentFillVertically(TributaryBundle.message("settings.connections.label"), tablePanel)
                 .getPanel();
     }
@@ -87,6 +101,8 @@ public final class TributaryConfigurable implements Configurable {
         return !cliPath.getText().trim().equals(s.cliPath)
                 || !charset.getText().trim().equals(s.cliCharset)
                 || (int) refreshMinutes.getValue() != s.refreshMinutes
+                || !java8Path.getText().trim().equals(s.bridgeJdkPath)
+                || !ibmPath.getText().trim().equals(s.ibmLibrariesPath)
                 || !currentConnections().equals(asRows(s.connections));
     }
 
@@ -96,6 +112,8 @@ public final class TributaryConfigurable implements Configurable {
         s.cliPath = cliPath.getText().trim();
         s.cliCharset = charset.getText().trim();
         s.refreshMinutes = (int) refreshMinutes.getValue();
+        s.bridgeJdkPath = java8Path.getText().trim();
+        s.ibmLibrariesPath = ibmPath.getText().trim();
         List<TributarySettings.Connection> updated = new ArrayList<>();
         for (int row = 0; row < connections.getRowCount(); row++) {
             updated.add(new TributarySettings.Connection(
@@ -115,6 +133,8 @@ public final class TributaryConfigurable implements Configurable {
                 s.cliPath.isEmpty() ? CliLocator.find("").map(Object::toString).orElse("") : s.cliPath);
         charset.setText(s.cliCharset);
         refreshMinutes.setValue(s.refreshMinutes);
+        java8Path.setText(s.bridgeJdkPath);
+        ibmPath.setText(s.ibmLibrariesPath);
         connections.setRowCount(0);
         for (TributarySettings.Connection connection : s.connections) {
             connections.addRow(new Object[] {connection.nickname, connection.uri, connection.userId});

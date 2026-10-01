@@ -20,8 +20,26 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Build the plugin
         run: ./gradlew test buildPlugin --no-daemon --console=plain
+      - name: Write the plugin repository descriptor
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          zip="tributary-${version}.zip"
+          test -f "build/distributions/${zip}"
+          cat > build/distributions/updatePlugins.xml <<EOF
+          <plugins>
+            <plugin id="dev.tributary" url="https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/${zip}" version="${version}">
+              <idea-version since-build="252"/>
+              <name>Tributary</name>
+              <description>IBM RTC / EWM source control for IntelliJ IDEA.</description>
+              <change-notes>https://github.com/${GITHUB_REPOSITORY}/releases/tag/${GITHUB_REF_NAME}</change-notes>
+            </plugin>
+          </plugins>
+          EOF
+          cat build/distributions/updatePlugins.xml
       - name: Create the GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          files: build/distributions/*.zip
+          files: |
+            build/distributions/*.zip
+            build/distributions/updatePlugins.xml
           generate_release_notes: true

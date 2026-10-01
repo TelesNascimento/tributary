@@ -142,7 +142,8 @@ public final class WorkItemPicker {
                 failure -> {
                     if (current == generation) {
                         model.clear();
-                        status.setText(failure.getMessage());
+                        addTypedId();
+                        status.setText("<html>" + failure.getMessage() + "</html>");
                     }
                 });
     }
@@ -150,8 +151,19 @@ public final class WorkItemPicker {
     private void show(List<WorkItem> items) {
         model.clear();
         items.forEach(model::addElement);
+        if (items.isEmpty()) {
+            addTypedId();
+        }
         status.setText(TributaryBundle.message("picker.found", items.size()));
-        if (!items.isEmpty()) {
+        if (!model.isEmpty()) {
+            list.setSelectedIndex(0);
+        }
+    }
+
+    private void addTypedId() {
+        WorkItem typed = typedIdOnly();
+        if (typed != null) {
+            model.addElement(typed);
             list.setSelectedIndex(0);
         }
     }

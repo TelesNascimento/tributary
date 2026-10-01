@@ -27,11 +27,82 @@ public final class BridgeLocator {
     public record Launch(List<String> command) {}
 
     public static Optional<Path> findJava8(String configured, List<String> extraRoots) {
+        return findJava8(configured, extraRoots, JAVA_ROOTS, System.getenv("JAVA_HOME"), System.getenv("PATH"));
+    }
+
+    static Optional<Path> findJava8(
+            String configured, List<String> extraRoots, List<String> systemRoots, String javaHome, String pathEnv) {
         if (configured != null && !configured.isBlank()) {
             return javaExecutable(Path.of(configured.trim()));
         }
+        if (javaHome != null && !javaHome.isBlank()) {
+            Path home = Path.of(javaHome.trim());
+            if (isJava8Home(home)) {
+                Optional<Path> exe = javaExecutable(home);
+                if (exe.isPresent()) {
+                    return exe;
+                }
+            }
+        }
+        Optional<Path> installed = findInRoots(extraRoots, systemRoots);
+        return installed.isPresent() ? installed : findOnPath(pathEnv);
+    }
+
+    private static Optional<Path> findOnPath(String pathEnv) {
+        if (pathEnv == null || pathEnv.isBlank()) {
+            return Optional.empty();
+        }
+        for (String entry : pathEnv.split(File.pathSeparator)) {
+            if (entry.isBlank()) {
+                continue;
+            }
+            try {
+                Path bin = Path.of(entry.trim());
+                Path home = bin.getParent();
+                if (home != null && isJava8Home(home)) {
+                    Optional<Path> exe = javaExecutable(home);
+                    if (exe.isPresent()) {
+                        return exe;
+                    }
+                }
+            } catch (java.nio.file.InvalidPathException ignored) {
+                continue;
+            }
+        }
+        return Optional.empty();
+    }
+
+    static boolean isJava8Home(Path home) {
+        if (declaresJava8(home)) {
+            return true;
+        }
+        Path parent = home.getParent();
+        return parent != null
+                && home.getFileName() != null
+                && "jre".equalsIgnoreCase(home.getFileName().toString())
+                && declaresJava8(parent);
+    }
+
+    private static boolean declaresJava8(Path home) {
+        Path release = home.resolve("release");
+        if (Files.isRegularFile(release)) {
+            try {
+                for (String line : Files.readAllLines(release)) {
+                    if (line.startsWith("JAVA_VERSION")) {
+                        return line.contains("\"1.8");
+                    }
+                }
+            } catch (IOException ignored) {
+                return false;
+            }
+        }
+        return home.getFileName() != null
+                && JDK8_NAME.matcher(home.getFileName().toString()).matches();
+    }
+
+    private static Optional<Path> findInRoots(List<String> extraRoots, List<String> systemRoots) {
         List<String> roots = new ArrayList<>(extraRoots);
-        roots.addAll(JAVA_ROOTS);
+        roots.addAll(systemRoots);
         for (String root : roots) {
             Path base = Path.of(root);
             if (!Files.isDirectory(base)) {

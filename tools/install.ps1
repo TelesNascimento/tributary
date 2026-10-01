@@ -2,11 +2,42 @@ param(
     [string]$Version = 'latest',
     [string]$PluginsDir,
     [string]$Zip,
-    [switch]$AllIdes
+    [switch]$AllIdes,
+    [switch]$NoUpdateRepository
 )
 
 $ErrorActionPreference = 'Stop'
 $repo = 'TelesNascimento/tributary'
+$updateUrl = "https://github.com/$repo/releases/latest/download/updatePlugins.xml"
+
+function Register-UpdateRepository([string]$pluginsDir) {
+    $options = Join-Path (Split-Path $pluginsDir -Parent) 'options'
+    New-Item -ItemType Directory -Force -Path $options | Out-Null
+    $file = Join-Path $options 'updates.xml'
+    $doc = New-Object Xml.XmlDocument
+    if (Test-Path $file) { $doc.Load($file) } else { $doc.LoadXml('<application />') }
+    $component = $doc.DocumentElement.SelectSingleNode("component[@name='UpdatesConfigurable']")
+    if (-not $component) {
+        $component = $doc.CreateElement('component')
+        $component.SetAttribute('name', 'UpdatesConfigurable')
+        [void]$doc.DocumentElement.AppendChild($component)
+    }
+    $hosts = $component.SelectSingleNode('pluginHosts')
+    if (-not $hosts) {
+        $hosts = $doc.CreateElement('pluginHosts')
+        [void]$component.AppendChild($hosts)
+    }
+    if ($hosts.SelectSingleNode("item[@value='$updateUrl']")) { return $false }
+    $item = $doc.CreateElement('item')
+    $item.SetAttribute('value', $updateUrl)
+    [void]$hosts.AppendChild($item)
+    $settings = New-Object Xml.XmlWriterSettings
+    $settings.Indent = $true
+    $settings.Encoding = New-Object Text.UTF8Encoding($false)
+    $writer = [Xml.XmlWriter]::Create($file, $settings)
+    try { $doc.Save($writer) } finally { $writer.Dispose() }
+    return $true
+}
 
 function Find-PluginDirs {
     $root = Join-Path $env:APPDATA 'JetBrains'
@@ -57,6 +88,9 @@ try {
         if (Test-Path $existing) { Remove-Item $existing -Recurse -Force }
         Expand-Archive -Path $archive -DestinationPath $dir -Force
         Write-Host "Installed to $existing"
+        if (-not $NoUpdateRepository -and (Register-UpdateRepository $dir)) {
+            Write-Host 'Registered the Tributary update repository, so the IDE offers new versions.'
+        }
     }
 } finally {
     Remove-Item $temp -Recurse -Force -ErrorAction SilentlyContinue

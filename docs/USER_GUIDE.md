@@ -31,6 +31,7 @@ IntelliJ IDEA. You can read `install.ps1` before running it. Useful switches:
 |---|---|
 | `-Version v0.2.0` | Install a specific release |
 | `-AllIdes` | Install into every IntelliJ IDEA found |
+| `-NoUpdateRepository` | Do not register the update repository |
 | `-PluginsDir <path>` | Install into a specific plugins folder |
 | `-Zip <file>` | Install from a zip you already have |
 
@@ -46,9 +47,9 @@ Open *Settings > Plugins > Installed* and search for **Tributary**. It should be
 
 ![Tributary listed in the installed plugins](images/plugin-installed.png)
 
-### Update and uninstall
+### Uninstall
 
-To update, run the installer again. To uninstall, use *Settings > Plugins > Installed > Tributary > Uninstall*.
+Use *Settings > Plugins > Installed > Tributary > Uninstall*. Updates are covered in section 6.
 
 ## 3. Connect to your server
 
@@ -79,6 +80,9 @@ for each component. The status bar shows the current card and the number of outg
 
 Press `Alt+Shift+W` (or use the status bar menu) and choose the card you are working on. You choose it once.
 From then on every check-in goes into a change set linked to that card.
+
+If the search finds nothing, or work item search is not available in your installation, type the card number
+and press Enter. Tributary uses that number as typed, without loading the card summary.
 
 ![Choosing a card](images/start-work.png)
 
@@ -124,7 +128,29 @@ loading. A name cannot contain `@`, because the command line reads it as a repos
 Creating a workspace writes to the server, so it shows up for your whole team. Tributary never delivers to a
 stream on its own.
 
-## 6. Troubleshooting
+## 6. Updates
+
+The installer registers the Tributary update repository in your IDE. From then on IntelliJ IDEA checks it by itself
+and shows a notification when a new version is out. Click *Update* and restart the IDE. Nothing to download.
+
+To get updates without waiting for the notification, open *Settings > Plugins > Installed*, or turn on
+*Update Plugins Automatically* in the gear menu.
+
+If you installed the zip by hand, add the repository once:
+
+1. Open *Settings > Plugins*, click the gear icon and choose *Manage Plugin Repositories...*.
+2. Click **+** and paste:
+
+   ```
+   https://github.com/TelesNascimento/tributary/releases/latest/download/updatePlugins.xml
+   ```
+
+3. Click *OK*.
+
+Update checks only read that file from GitHub. If you prefer not to use it, run the installer with
+`-NoUpdateRepository`, or update by running the installer again.
+
+## 7. Troubleshooting
 
 | Symptom | What to do |
 |---|---|
@@ -132,10 +158,11 @@ stream on its own.
 | "scm not found" | Set the path in *Settings > Version Control > Tributary* |
 | "Login required" | Run `scm login` again in a terminal. Sessions expire |
 | Tributary does not appear in the plugin list | Check that the IDE is 2025.2 or later. Restart the IDE after installing |
-| Card search does nothing | Release zips come without the work item bridge. Build from source with `ibmPlugins` set, see [CONTRIBUTING.md](../CONTRIBUTING.md) |
+| Card search finds nothing | Type the card number and press Enter. Search needs the work item bridge, which release zips do not include. Build from source with `ibmPlugins` set to have it, see [CONTRIBUTING.md](../CONTRIBUTING.md) |
+| "Java 8 runtime" message | Only needed for search. Set the folder in *Settings > Version Control > Tributary*, or use the card number instead |
 | An action fails | The error notification shows the message from `scm`. Attach it when you open an issue |
 
-## 7. Getting help
+## 8. Getting help
 
 Open an [issue](https://github.com/TelesNascimento/tributary/issues/new/choose). Do not paste passwords, tokens
 or internal server names.

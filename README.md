@@ -70,6 +70,14 @@ Release zips come without the work item bridge, because it needs IBM client libr
 redistributed. Everything else works. To search work items, build from source with the libraries of your own RTC
 client: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+**Updates.** The installer also registers an update repository in your IDE, so IntelliJ notifies you when a new
+version is out and updates it with one click. If you installed by hand, add this URL once in *Settings > Plugins >
+gear icon > Manage Plugin Repositories...*:
+
+```
+https://github.com/TelesNascimento/tributary/releases/latest/download/updatePlugins.xml
+```
+
 ## Getting started
 
 1. *Settings > Version Control > Tributary*: the path to `scm.exe` is detected automatically.

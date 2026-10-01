@@ -47,11 +47,13 @@ public final class WorkItemService implements Disposable, BridgeWorkItems.Channe
         }
         loggedInAs = "";
         TributarySettings.Data settings = TributarySettings.getInstance().getState();
+        Path jar = bridgeJar()
+                .filter(java.nio.file.Files::isRegularFile)
+                .orElseThrow(() -> unavailable("error.bridge.no.jar"));
         Path java = BridgeLocator.findJava8(settings.bridgeJdkPath, List.of())
                 .orElseThrow(() -> unavailable("error.bridge.no.java"));
         Path ibm = BridgeLocator.findIbmPlugins(settings.ibmLibrariesPath, List.of())
                 .orElseThrow(() -> unavailable("error.bridge.no.ibm"));
-        Path jar = bridgeJar().orElseThrow(() -> unavailable("error.bridge.no.jar"));
         try {
             BridgeLocator.Launch launch =
                     BridgeLocator.launch(java, jar, ibm).orElseThrow(() -> unavailable("error.bridge.no.ibm"));

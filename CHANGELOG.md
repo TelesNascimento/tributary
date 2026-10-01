@@ -5,6 +5,19 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-10-01
+
+### Added
+- Update repository: the installer registers it in the IDE, and the release workflow publishes `updatePlugins.xml`,
+  so the IDE offers new versions with one click.
+- *Java 8 folder* and *RTC client libraries folder* fields in the settings page.
+
+### Fixed
+- The card picker now accepts a typed card number and shows a *use this card number* row when work item search is
+  unavailable, instead of an empty list.
+- Java 8 is now also detected from `JAVA_HOME` and the `PATH`.
+- Clearer messages when the work item bridge, Java 8 or the RTC client libraries are missing.
+
 ## [0.2.0] - 2026-09-30
 
 ### Added
